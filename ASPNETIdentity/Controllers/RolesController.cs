@@ -17,7 +17,7 @@ namespace ASPNETIdentity.Controllers
         {
             return View();
         }
-
+        //Create Role
         public ActionResult Create(Role role)
         {
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(Db));
