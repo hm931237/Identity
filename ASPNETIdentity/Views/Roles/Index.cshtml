@@ -1,0 +1,9 @@
+﻿@model ASPNETIdentity.Models.Role
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form method="post" action="@Url.Action("Create", "Roles")">
+    @Html.TextBoxFor(model=>model.Name)
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
