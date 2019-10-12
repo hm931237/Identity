@@ -14,6 +14,7 @@ namespace ASPNETIdentity
         {
             ConfigureAuth(app);
             CreateRules();
+            CreateUsers();
         }
         public void CreateRules()
         {
@@ -23,6 +24,20 @@ namespace ASPNETIdentity
             {
                 Role.Name = "Admins";
                 roleManager.Create(Role);
+            }
+        }
+
+        public void CreateUsers()
+        {
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(Db));
+            var User = new ApplicationUser();
+            User.Email = "hm931237@gmail.com";
+            User.UserName = "Hesham";
+            
+            var Check = userManager.Create(User,"Hesh@m123");
+            if (Check.Succeeded)
+            {
+                userManager.AddToRole(User.Id, "Admins");
             }
         }
     }
