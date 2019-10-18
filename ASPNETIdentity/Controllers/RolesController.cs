@@ -29,5 +29,10 @@ namespace ASPNETIdentity.Controllers
             }
             return Content("Done");
         }
+
+        public ActionResult ShowRoles()
+        {
+            return View(Db.Roles.ToList());
+        }
     }
 }
